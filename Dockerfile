@@ -31,6 +31,8 @@ RUN apt-get update && \
             zlib1g-dev \
             mysql-client \
             openssh-client \
+            ldap-utils \
+            libldap2-dev \
             nano \
             unzip \
         --no-install-recommends && \
@@ -57,7 +59,8 @@ RUN docker-php-ext-configure gd \
         mbstring \
         opcache \
         pdo_mysql \
-        pdo_pgsql
+        pdo_pgsql \
+        ldap
 
 
 # Install composer
