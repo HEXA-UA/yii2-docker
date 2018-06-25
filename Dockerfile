@@ -11,7 +11,6 @@ ENV PATH=/app:/app/vendor/bin:/root/.composer/vendor/bin:$PATH \
 RUN apt-get update && \
     apt-get -y install \
         gnupg2 && \
-    apt-key update && \
     apt-get update && \
     apt-get -y install \
             g++ \
@@ -35,12 +34,17 @@ RUN apt-get update && \
             libldap2-dev \
             nano \
             unzip \
+            libgeoip-dev \
+            wget \
         --no-install-recommends && \
         apt-get clean
 
 RUN pecl install xdebug-2.6.0 \
     && docker-php-ext-enable xdebug
 
+
+RUN pecl install geoip-1.1.1 \
+    && docker-php-ext-enable geoip
 
 RUN docker-php-ext-configure gd \
         --with-freetype-dir=/usr/include/ \
