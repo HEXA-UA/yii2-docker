@@ -1,4 +1,4 @@
-FROM php:7.2-fpm
+FROM php:7.1-fpm
 MAINTAINER Hexa "info@hexa.com.ua"
 
 ENV DEBIAN_FRONTEND=noninteractive
