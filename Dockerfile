@@ -25,6 +25,7 @@ RUN apt-get update && \
             libjpeg62-turbo-dev \
             libmagickwand-dev \
             libpq-dev \
+            procps \
             libpng-dev \
             libxml2-dev \
             zlib1g-dev \
