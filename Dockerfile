@@ -85,6 +85,12 @@ RUN apt-get install -y nodejs build-essential
 RUN npm install -g webpack
 
 
+RUN wget -N http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
+RUN gunzip GeoIP.dat.gz
+RUN mkdir -p /usr/share/GeoIP/
+RUN mv GeoIP.dat /usr/share/GeoIP/
+
+
 ENV TZ 'America/New_York'
 RUN echo $TZ > /etc/timezone \
     && apt-get update && apt-get install -y tzdata && \
