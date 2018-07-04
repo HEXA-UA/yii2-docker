@@ -5,8 +5,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 ENV PATH=/app:/app/vendor/bin:/root/.composer/vendor/bin:$PATH \
     VERSION_PRESTISSIMO_PLUGIN=^0.3.7 \
+    VERSION_PHING=2.* \
     COMPOSER_ALLOW_SUPERUSER=1
-
 
 RUN apt-get update && \
     apt-get -y install \
@@ -77,6 +77,11 @@ RUN apt-get purge -y g++ \
 # Install composer plugins
 RUN composer global require --optimize-autoloader \
         "hirak/prestissimo:${VERSION_PRESTISSIMO_PLUGIN}" \
+        && composer global dumpautoload --optimize \
+        && composer clear-cache
+
+RUN composer global require --optimize-autoloader \
+        "phing/phing:${VERSION_PHING}" \
         && composer global dumpautoload --optimize \
         && composer clear-cache
 
