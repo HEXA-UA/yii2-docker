@@ -37,6 +37,8 @@ RUN apt-get update && \
             unzip \
             libgeoip-dev \
             wget \
+            xvfb \
+            net-tools \
         --no-install-recommends && \
         apt-get clean
 
