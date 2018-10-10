@@ -69,7 +69,6 @@ RUN docker-php-ext-configure gd \
         pdo_pgsql \
         ldap
 
-
 # Install composer
 RUN apt-get purge -y g++ \
     && apt-get autoremove -y \
@@ -105,5 +104,3 @@ RUN echo $TZ > /etc/timezone \
     apt-get clean
 
 # Debug info
-RUN node -v
-RUN npm -v
