@@ -22,6 +22,7 @@ RUN apt-get update && \
             libicu-dev \
             libfreetype6-dev \
             libjpeg-dev \
+            libmcrypt \
             libjpeg62-turbo-dev \
             libmagickwand-dev \
             libpq-dev \
