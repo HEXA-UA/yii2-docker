@@ -57,6 +57,7 @@ RUN docker-php-ext-configure gd \
     docker-php-ext-install \
         soap \
         zip \
+        mcrypt \
         curl \
         bcmath \
         exif \
