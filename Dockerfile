@@ -46,7 +46,6 @@ RUN apt-get update && \
 RUN pecl install xdebug-2.6.0 \
     && docker-php-ext-enable xdebug
 
-
 RUN pecl install geoip-1.1.1 \
     && docker-php-ext-enable geoip
 
@@ -97,6 +96,10 @@ RUN mkdir -p /usr/share/GeoIP/
 
 RUN wget -N https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz
 RUN tar -xzf GeoLite2-Country.tar.gz -C /usr/share/GeoIP/
+
+RUN curl -LO https://deployer.org/deployer.phar
+RUN mv deployer.phar /usr/local/bin/dep
+RUN chmod +x /usr/local/bin/dep
 
 ENV TZ 'UTC'
 RUN echo $TZ > /etc/timezone \
