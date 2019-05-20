@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV PATH=/app:/app/vendor/bin:/root/.composer/vendor/bin:$PATH \
     VERSION_PRESTISSIMO_PLUGIN=^0.3.7 \
     VERSION_PHING=2.* \
+    VETSION_PHPCS=3.4.2 \
     COMPOSER_ALLOW_SUPERUSER=1
 
 RUN apt-get update && \
@@ -84,6 +85,12 @@ RUN composer global require --optimize-autoloader \
 
 RUN composer global require --optimize-autoloader \
         "phing/phing:${VERSION_PHING}" \
+        && composer global dumpautoload --optimize \
+        && composer clear-cache
+
+
+RUN composer global require --optimize-autoloader \
+        "squizlabs/php_codesniffer:${VETSION_PHPCS}" \
         && composer global dumpautoload --optimize \
         && composer clear-cache
 
