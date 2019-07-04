@@ -88,7 +88,6 @@ RUN composer global require --optimize-autoloader \
         && composer global dumpautoload --optimize \
         && composer clear-cache
 
-
 RUN composer global require --optimize-autoloader \
         "squizlabs/php_codesniffer:${VETSION_PHPCS}" \
         && composer global dumpautoload --optimize \
@@ -97,7 +96,7 @@ RUN composer global require --optimize-autoloader \
 # Install nodejs, webpack
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs build-essential
-RUN npm install -g webpack
+RUN npm install -g webpack aglio
 
 RUN mkdir -p /usr/share/GeoIP/
 
