@@ -97,7 +97,6 @@ RUN composer global require --optimize-autoloader \
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs build-essential
 RUN npm install -g webpack
-RUN npm install -g aglio
 
 RUN mkdir -p /usr/share/GeoIP/
 
